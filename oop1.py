@@ -9,6 +9,11 @@ class PlayerCharacter:
         self.LUCK = LUCK
         self.SPEED = SPEED
     def Attack(self, target): 
+        '''
+        Basic attack függvény nem ad vissza semmit. Kalkulál egy sebzést a self sebzése és a target armorja alapján. Amennyiben a Calculate dodge függvény True-t ad vissza. A sebzés meghiúsult.
+
+        :Parameters: slef, target target az ellenség self maga a karakter!
+        '''
         damage_dealt = (self.DMG * 3) - target.ARMOR
         
         if self.CalculateDodge() == True:
@@ -20,6 +25,13 @@ class PlayerCharacter:
             print(f"{self.name} megtámadta {target.name}-et és {damage_dealt} mennyiségű sebzést okozott!")
         print(f"{target.name}-nek ennyi HP-ja maradt: {target.HP}")
     def CalculateDodge(self):
+        '''
+        Kiszámolja a dodgot a self LUCKja alapján.
+
+        :Return: True ha a Luck és egy random szám 1 és 100 között összege nagyobb mint 75. False mindig máskor.
+
+        :Parameters: self, maga a karakter
+        '''
         self.DODGE = random.randint(1,100) + self.LUCK
         if self.DODGE >= 75:
             return True
@@ -28,6 +40,12 @@ class PlayerCharacter:
 
 
 def Harcrendszer(harc_tagjai = []):
+    '''
+    Bubble sortolja a harc_tagjai listátá ami egy teljes roster ami az elérhető ellenfelekből áll!
+
+    :Parameters: harc_tagjai[]
+
+    '''
     for harcosok in harc_tagjai:
         for j in harcosok:
 
@@ -35,6 +53,11 @@ def Harcrendszer(harc_tagjai = []):
                 j[harcosok], j[harcosok + 1] = j[harcosok + 1], j[harcosok]
             
     def Harc(harcosok):
+        '''
+        Elindítja a harc funkciót. Kérdés elé állítja a játékost, hogy szeretne-e harcolni és ez alapján indít egy while ciklust!
+
+        :Parameters: harcosok[] .SPEED orderben, ők fognak harcolni
+        '''
         harc = True
         while harc:
             print("Mit szeretnél?")
