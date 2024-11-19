@@ -34,9 +34,22 @@ def Harcrendszer(harc_tagjai = []):
             if j[harcosok].SPEED > j[harcosok + 1].SPEED:
                 j[harcosok], j[harcosok + 1] = j[harcosok + 1], j[harcosok]
             
-    def Harc():
-        pass
-
+    def Harc(harcosok):
+        harc = True
+        while harc:
+            print("Mit szeretnél?")
+            print("1 ha harcolni szeretnél!")
+            print("2 ha meneküni szeretnél!")
+            print("3 ha beszélni szeretnél!")
+            kerdes = int(input(f"Válassz: "))
+            if kerdes == 1:
+                print("Harc! Készülj a küzdelemre!")
+            elif kerdes == 2:
+                print("Menekülés! Fuss az életedért!")
+            elif kerdes == 3:
+                print("Beszélgetni próbálsz!")
+                print('\n')
+                print("A szörnynek nincs semmi mondanivalója! Harc!")
 
 player1 = PlayerCharacter("player1", 100, 15, 5, 12)
 player2 = PlayerCharacter("player2", 200, 4, 20, 8)
