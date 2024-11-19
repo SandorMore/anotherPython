@@ -1,4 +1,5 @@
 import random
+import time as t
 
 class PlayerCharacter:
     def __init__(self, name, HP, DMG, ARMOR, LUCK, SPEED):
