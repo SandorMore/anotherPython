@@ -6,3 +6,6 @@ class Háromszög:
 
         def Kerületszámolás(aOldal, bOldal, cOldal):
             return sum(aOldal, bOldal, cOldal)
+        
+        def Területszámolás():
+            pass
